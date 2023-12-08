@@ -1,6 +1,14 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
+import log4js from 'log4js'
+
+log4js.configure({
+	appenders: { cheese: { type: "file", filename: "logs.log" } },
+	categories: { default: { appenders: ["cheese"], level: "info" } },
+});
+
+const logger = log4js.getLogger("cheese");
 
 /* REGISTER USER */
 export const register = async (req, res) => {
@@ -18,6 +26,8 @@ export const register = async (req, res) => {
 
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
+
+	logger.info("Using register function");
 
     const newUser = new User({
       firstName,
@@ -51,6 +61,7 @@ export const login = async (req, res) => {
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
     delete user.password;
+	logger.info("Using logging function");
     res.status(200).json({ token, user });
   } catch (err) {
     res.status(500).json({ error: err.message });
