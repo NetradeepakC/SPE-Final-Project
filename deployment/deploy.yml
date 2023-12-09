@@ -13,7 +13,7 @@
     #     name: netradeepakc/spe_main_project_client:latest
     #     source: pull
     - name: Create new directory
-      shell: mkdir -p spe_main_project_ansible
+      shell: mkdir -p ~/spe_main_project_ansible
     - name: Copy Docker Compose
       copy:
         src: /home/netradeepakc_rocky/Documents/SPE_Project/SPE-Final-Project/docker-compose.yml
