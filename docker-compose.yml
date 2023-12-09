@@ -4,7 +4,7 @@ services:
     image: mongo
     container_name: mongodb
     volumes:
-      - /var/lib/jenkins/workspace/SPE_Final_Project/database:/data/db
+      - ~/database:/data/db
     restart: unless-stopped
   server:
     image: netradeepakc/spe_main_project_server
