@@ -18,12 +18,12 @@
       copy:
         src: /var/lib/jenkins/workspace/SPE_Final_Project/docker-compose.yml
         dest: ~/spe_main_project_ansible/docker-compose.yml
-    # - name: Stop docker compose
-    #   command: docker compose down
-    #   args:
-    #     chdir: /var/lib/jenkins/workspace/SPE_Final_Project/spe_main_project_ansible
-    # - name: Remove old images 
-    #   shell: docker image rm netradeepakc/spe_main_project_server netradeepakc/spe_main_project_client
+    - name: Stop docker compose
+      command: docker compose down
+      args:
+        chdir: ~/spe_main_project_ansible
+    - name: Remove old images 
+      shell: docker image rm netradeepakc/spe_main_project_server netradeepakc/spe_main_project_client
     - name: Run docker compose
       command: docker compose up -d
       args:
