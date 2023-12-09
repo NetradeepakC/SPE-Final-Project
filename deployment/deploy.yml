@@ -18,7 +18,7 @@
       copy:
         src: /home/netradeepakc_rocky/Documents/SPE_Project/SPE-Final-Project/docker-compose.yml
         dest: ~/spe_main_project_ansible/docker-compose.yml
-    - name: Stop docker compose
+    # - name: Stop docker compose
     #   command: docker compose down
     #   args:
     #     chdir: ~/spe_main_project_ansible
