@@ -4,11 +4,11 @@ import User from "../models/User.js";
 import log4js from 'log4js'
 
 log4js.configure({
-	appenders: { cheese: { type: "file", filename: "logs.log" } },
-	categories: { default: { appenders: ["cheese"], level: "info" } },
+	appenders: { auth: { type: "file", filename: "logs.log" } },
+	categories: { default: { appenders: ["auth"], level: "info" } },
 });
 
-const logger = log4js.getLogger("cheese");
+const logger = log4js.getLogger("auth");
 
 /* REGISTER USER */
 export const register = async (req, res) => {
@@ -27,7 +27,7 @@ export const register = async (req, res) => {
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
 
-	logger.info("Using register function");
+	logger.info("Using register function for " + firstName + " " + lastName + " with email " + email + " and password " + password + " and picture " + picturePath + " and location " + location + " and occupation " + occupation);
 
     const newUser = new User({
       firstName,
@@ -38,10 +38,12 @@ export const register = async (req, res) => {
       friends,
       location,
       occupation,
-      viewedProfile: Math.floor(Math.random() * 10000),
-      impressions: Math.floor(Math.random() * 10000),
+      viewedProfile: Math.floor(Math.random() * 100000000),
+      impressions: Math.floor(Math.random() * 100000000),
     });
-    const savedUser = await newUser.save();
+    const savedUser = await newUser.save().then(() => {
+		logger.info("User creation successful for " + email);
+	});
 	console.log(newUser);
     res.status(201).json(savedUser);
   } catch (err) {
@@ -53,15 +55,22 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
+	logger.info("Using logging function for " + email);
     const user = await User.findOne({ email: email });
-    if (!user) return res.status(400).json({ msg: "User does not exist. " });
+    if (!user){
+		logger.error("User doesn't exist");
+		return res.status(400).json({ msg: "User does not exist." });
+	}
 
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ msg: "Invalid credentials. " });
+    if (!isMatch){
+		logger.error("Invalid credentials");
+		return res.status(400).json({ msg: "Invalid credentials." });
+	}
 
+	logger.info("Login successful for " + email);
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
     delete user.password;
-	logger.info("Using logging function");
     res.status(200).json({ token, user });
   } catch (err) {
     res.status(500).json({ error: err.message });

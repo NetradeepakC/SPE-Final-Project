@@ -3,23 +3,17 @@ services:
   mongodb:
     image: mongo
     container_name: mongodb
-    # environment:
-    #   - PUID=1000
-    #   - PGID=1000
     volumes:
-      - /home/satvik/Desktop/spe/repo/mern-social-media/database:/data/db
+      - /home/netradeepakc_rocky/Documents/SPE_Project/SPE-Final-Project/database:/data/db
     restart: unless-stopped
   server:
-    image: nodejs_backend
+    image: netradeepakc/spe_main_project_server
     container_name: server
-    # environment:
-    #   # - PUID=1000
-    #   # - PGID=1000
     ports:
       - '3001:3001'
     restart: unless-stopped
   client:
-    image: react_frontend
+    image: netradeepakc/spe_main_project_client
     container_name: client
     ports:
       - '3000:3000'
