@@ -16,7 +16,7 @@
       shell: mkdir -p ~/spe_main_project_ansible
     - name: Copy Docker Compose
       copy:
-        src: /home/netradeepakc_rocky/Documents/SPE_Project/SPE-Final-Project/docker-compose.yml
+        src: docker-compose.yml
         dest: ~/spe_main_project_ansible/docker-compose.yml
     # - name: Stop docker compose
     #   command: docker compose down
