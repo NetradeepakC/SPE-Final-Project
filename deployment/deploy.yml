@@ -3,7 +3,7 @@
   hosts: all
   vars:
     ansible_python_interpreter: /usr/bin/python3
-  tasks: #Webhook test
+  tasks:
     - name: Pull server image
       docker_image:
         name: netradeepakc/spe_main_project_server:latest
