@@ -23,7 +23,7 @@
       args:
         chdir: ~/spe_main_project_ansible
     - name: Remove old images 
-      shell: docker image rm manan3/spe_main_project_server manan3/spe_main_project_client
+      shell: docker image rm -f manan3/spe_main_project_server manan3/spe_main_project_client
     - name: Run docker compose
       command: docker compose up -d
       args:
