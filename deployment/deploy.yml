@@ -6,24 +6,22 @@
   tasks:
     - name: Pull server image
       docker_image:
-        name: manan3/spe_main_project_server:latest
+        name: netradeepakc/spe_main_project_server:latest
         source: pull
     - name: Pull client image
       docker_image:
-        name: manan3/spe_main_project_client:latest
+        name: netradeepakc/spe_main_project_client:latest
         source: pull
     - name: Create new directory
       shell: mkdir -p ~/spe_main_project_ansible
     - name: Copy Docker Compose
       copy:
-        src: /var/lib/jenkins/workspace/SPE-Endterm Project/docker-compose.yml
+        src: /var/lib/jenkins/workspace/SPE-Final-Project/docker-compose.yml
         dest: ~/spe_main_project_ansible/docker-compose.yml
     - name: Stop docker compose
       command: docker compose down
       args:
         chdir: ~/spe_main_project_ansible
-    - name: Remove old images 
-      shell: docker image rm -f manan3/spe_main_project_server manan3/spe_main_project_client
     - name: Run docker compose
       command: docker compose up -d
       args:

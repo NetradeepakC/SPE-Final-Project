@@ -7,13 +7,13 @@ services:
       - ~/database:/data/db
     restart: unless-stopped
   server:
-    image: manan3/spe_main_project_server
+    image: netradeepakc/spe_main_project_server
     container_name: server
     ports:
       - '3001:3001'
     restart: unless-stopped
   client:
-    image: manan3/spe_main_project_client
+    image: netradeepakc/spe_main_project_client
     container_name: client
     ports:
       - '3000:3000'
