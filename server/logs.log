@@ -329,3 +329,34 @@
 [2023-12-12T22:41:45.215] [INFO] cheese - User logged in successfully for + Manan.Patel@iiitb.ac.in.
 [2023-12-12T22:41:45.223] [INFO] cheese - Using logging function for Manan.Patel@iiitb.ac.in.
 [2023-12-12T22:41:45.304] [INFO] cheese - User logged in successfully for + Manan.Patel@iiitb.ac.in.
+[2023-12-12T23:40:02.139] [INFO] cheese - Using logging function for Manan.Patel@iiitb.ac.in.
+[2023-12-12T23:41:04.466] [INFO] cheese - Using logging function for Manan.Patel@iiitb.ac.in.
+[2023-12-12T23:41:04.481] [ERROR] cheese - User does not exist.
+[2023-12-12T23:42:22.260] [INFO] cheese - Using logging function for Manan.Patel@iiitb.ac.in.
+[2023-12-12T23:42:22.270] [ERROR] cheese - User does not exist.
+[2023-12-12T23:42:31.702] [INFO] cheese - Using logging function for Manan.Patel@iiitb.ac.in.
+[2023-12-12T23:42:46.438] [INFO] cheese - Using logging function for Manan.Patel@iiitb.ac.in.
+[2023-12-12T23:42:46.446] [ERROR] cheese - User does not exist.
+[2023-12-12T23:44:12.059] [INFO] cheese - Using logging function for Manan.Patel@iiitb.ac.in.
+[2023-12-12T23:44:12.075] [ERROR] cheese - User does not exist.
+[2023-12-12T23:48:03.444] [INFO] cheese - Using logging function for Manan.Patel@iiitb.ac.in.
+[2023-12-12T23:48:03.464] [ERROR] cheese - User does not exist.
+[2023-12-12T23:51:14.759] [INFO] cheese - Using logging function for Manan.Patel@iiitb.ac.in.
+[2023-12-12T23:51:14.775] [ERROR] cheese - User does not exist.
+[2023-12-12T23:51:48.964] [INFO] cheese - Using logging function for Manan.Patel@iiitb.ac.in.
+[2023-12-12T23:51:48.981] [ERROR] cheese - User does not exist.
+[2023-12-13T00:04:12.942] [INFO] cheese - Using logging function for Manan.Patel@iiitb.ac.in.
+[2023-12-13T00:04:12.970] [ERROR] cheese - User does not exist.
+[2023-12-13T00:06:08.600] [INFO] cheese - Using register function for manan patel with email Manan.Patel@iiitb.ac.in.
+[2023-12-13T00:06:08.627] [INFO] cheese - Using logging function for Manan.Patel@iiitb.ac.in.
+[2023-12-13T00:06:08.697] [INFO] cheese - User logged in successfully for + Manan.Patel@iiitb.ac.in.
+[2023-12-13T00:06:08.701] [INFO] cheese - Using logging function for nonexistentuser@example.com.
+[2023-12-13T00:06:08.703] [ERROR] cheese - User does not exist.
+[2023-12-13T00:06:08.707] [INFO] cheese - Using logging function for Manan.Patel@iiitb.ac.in.
+[2023-12-13T00:06:08.769] [ERROR] cheese - Invalid credentials.
+[2023-12-13T00:06:08.773] [INFO] cheese - Using logging function for Manan.Patel@iiitb.ac.in.
+[2023-12-13T00:06:08.835] [INFO] cheese - User logged in successfully for + Manan.Patel@iiitb.ac.in.
+[2023-12-13T00:06:08.847] [INFO] cheese - Using logging function for Manan.Patel@iiitb.ac.in.
+[2023-12-13T00:06:08.910] [INFO] cheese - User logged in successfully for + Manan.Patel@iiitb.ac.in.
+[2023-12-13T00:06:08.915] [INFO] cheese - Using logging function for Manan.Patel@iiitb.ac.in.
+[2023-12-13T00:06:08.984] [INFO] cheese - User logged in successfully for + Manan.Patel@iiitb.ac.in.

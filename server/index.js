@@ -19,12 +19,15 @@ import { verifyToken } from "./middleware/auth.js";
 import User from "./models/User.js";
 import Post from "./models/Post.js";
 import { users, posts } from "./data/index.js";
+import { config } from './config.js';
 
 /* CONFIGURATIONS */
 //?this comment is put here for experimental purposes for the
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const env = process.env.NODE_ENV || 'production';
+const dbUrl= config[env].dbUrl;
 dotenv.config();
 const app = express();
 app.use(express.json());
@@ -57,10 +60,12 @@ app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 
 
+console.log("before connection")
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6001;
+console.log(dbUrl);
 mongoose
-  .connect(process.env.MONGO_URL, {
+  .connect(dbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -72,4 +77,6 @@ mongoose
     // Post.insertMany(posts);
   })
   .catch((error) => console.log(`${error} did not connect`));
+
+console.log("after connection")
 export default app;

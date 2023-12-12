@@ -10,10 +10,10 @@ const assert = chai.assert;
 //   // Example test case for a successful registration
 //   it('should register a new user', async () => {
 //     const newUser = {
-//       firstName: 'qwer',
-//       lastName: 'erty',
-//       email: 'qwerasfd@example.com',
-//       password: 'password123'
+//       email: 'Manan.Patel@iiitb.ac.in',
+//       password: 'Manan.Patel@iiitb.ac.in',
+//       firstName: 'manan',
+//       lastName: 'patel'
 //     };
 
 //     const response = await chai
@@ -22,18 +22,18 @@ const assert = chai.assert;
 //       .send(newUser);
 //     assert.equal(response.status, 201);
 //   });
-//   it('should give invalid request because of missing data',async() =>{
-//     const newUser = {
-//         firstName: 'qwery',
-//         lastName: 'erty',
-//         email: 'qwer@example.com',
-//     };
-//     const response = await chai
-//       .request(app)
-//       .post('/auth/register')
-//       .send(newUser);
-//     assert.equal(response.status, 500);
-//   });
+// //   it('should give invalid request because of missing data',async() =>{
+// //     const newUser = {
+// //         firstName: 'qwery',
+// //         lastName: 'erty',
+// //         email: 'qwer@example.com',
+// //     };
+// //     const response = await chai
+// //       .request(app)
+// //       .post('/auth/register')
+// //       .send(newUser);
+// //     assert.equal(response.status, 500);
+// //   });
 // });
 
 chai.use(chaiHttp);
