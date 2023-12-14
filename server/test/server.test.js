@@ -22,18 +22,18 @@ const assert = chai.assert;
 //       .send(newUser);
 //     assert.equal(response.status, 201);
 //   });
-// //   it('should give invalid request because of missing data',async() =>{
-// //     const newUser = {
-// //         firstName: 'qwery',
-// //         lastName: 'erty',
-// //         email: 'qwer@example.com',
-// //     };
-// //     const response = await chai
-// //       .request(app)
-// //       .post('/auth/register')
-// //       .send(newUser);
-// //     assert.equal(response.status, 500);
-// //   });
+//   it('should give invalid request because of missing data',async() =>{
+//     const newUser = {
+//         firstName: 'qwery',
+//         lastName: 'erty',
+//         email: 'qwer@example.com',
+//     };
+//     const response = await chai
+//       .request(app)
+//       .post('/auth/register')
+//       .send(newUser);
+//     assert.equal(response.status, 500);
+//   });
 // });
 
 chai.use(chaiHttp);
@@ -89,7 +89,7 @@ describe('auth controller', () => {
 });
 
 describe('User controller', () => {
-    it('should return user with the given id', async () => {
+    it('Get User:should return user with the given id', async () => {
         const userData = {
             email: "Manan.Patel@iiitb.ac.in",
             password: "Manan.Patel@iiitb.ac.in"    
@@ -108,7 +108,7 @@ describe('User controller', () => {
         expect(response).to.have.status(200);
     });
 
-    it('Should give a 403 because of no token', async () => {
+    it('Get User:Should give a 403 because of no token', async () => {
         const userData = {
             email: "Manan.Patel@iiitb.ac.in",
             password: "Manan.Patel@iiitb.ac.in"    
@@ -126,7 +126,7 @@ describe('User controller', () => {
         expect(response.body).to.have.property('message').equal('Access Denied');
     });
 
-    it('Invalid token', async () => {
+    it('Get User:Invalid token', async () => {
         // const id= "6578182504faa71b7866f06e";
         const userData = {
             email: "Manan.Patel@iiitb.ac.in",
@@ -146,13 +146,27 @@ describe('User controller', () => {
         expect(response).to.have.status(500);
         expect(response.body).to.have.property('error').equal('jwt malformed');
     });
-  });
+    it('Get UserFriends: Should return list of all friends', async () => {
+        // const id= "6578182504faa71b7866f06e";
+        const userData = {
+            email: "Manan.Patel@iiitb.ac.in",
+            password: "Manan.Patel@iiitb.ac.in"    
+        };
+        let response = await chai
+        .request(app)
+        .post('/auth/login')
+        .send(userData);
+        let id = response.body.user._id;
+        let token = response.body.token
+        response = await chai
+        .request(app)
+        .get('/users/'+id+'/friends')
+        .set('Authorization','Bearer '+token);
 
-// after(function () {
-//     if (this.currentTest.state === 'failed') {
-//       process.exitCode = 1; // Set exit code to indicate test failure
-//     }
-//   });
+        expect(response).to.have.status(200);
+    });
+    
+  });
 afterEach(function(){
     if(this.currentTest.state === 'failed'){
         process.exit(1);

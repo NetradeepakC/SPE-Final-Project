@@ -1,8 +1,8 @@
 ---
 - name: Pull Docker image of project
   hosts: all
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
+    # vars:
+    #   ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: Pull server image
       docker_image:
